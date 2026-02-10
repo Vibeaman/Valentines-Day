@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 340 30% 96%;
+    --foreground: 340 40% 15%;
+
+    --card: 340 40% 98%;
+    --card-foreground: 340 40% 15%;
+
+    --popover: 340 40% 98%;
+    --popover-foreground: 340 40% 15%;
+
+    --primary: 346 77% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 340 60% 90%;
+    --secondary-foreground: 340 40% 20%;
+
+    --muted: 340 30% 92%;
+    --muted-foreground: 340 15% 45%;
+
+    --accent: 20 80% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 340 30% 88%;
+    --input: 340 30% 88%;
+    --ring: 346 77% 50%;
+
+    --radius: 1rem;
+
+    --love-rose: 346 77% 50%;
+    --love-pink: 340 80% 70%;
+    --love-blush: 340 60% 90%;
+    --love-crimson: 348 83% 40%;
+    --love-gold: 38 90% 55%;
+    --love-dark: 340 50% 10%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 340 50% 5%;
+    --foreground: 340 20% 90%;
+    --card: 340 50% 8%;
+    --card-foreground: 340 20% 90%;
+    --popover: 340 50% 8%;
+    --popover-foreground: 340 20% 90%;
+    --primary: 346 77% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 340 40% 15%;
+    --secondary-foreground: 340 20% 90%;
+    --muted: 340 30% 15%;
+    --muted-foreground: 340 15% 60%;
+    --accent: 20 80% 55%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 340 30% 18%;
+    --input: 340 30% 18%;
+    --ring: 346 77% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+    font-family: 'Quicksand', sans-serif;
+  }
+}
+
+@layer components {
+  .font-script {
+    font-family: 'Dancing Script', cursive;
+  }
+
+  .font-body {
+    font-family: 'Quicksand', sans-serif;
+  }
+}
+
+@layer utilities {
+  @keyframes float-heart {
+    0% {
+      transform: translateY(100vh) scale(0) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(-20vh) scale(1) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  @keyframes pulse-love {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.15);
+    }
+  }
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+  }
+
+  @keyframes crack {
+    0% { transform: scale(1) rotate(0deg); }
+    25% { transform: scale(1.1) rotate(-5deg); }
+    50% { transform: scale(0.9) rotate(5deg); }
+    75% { transform: scale(1.05) rotate(-3deg); }
+    100% { transform: scale(1) rotate(0deg); }
+  }
+
+  @keyframes confetti-fall {
+    0% { transform: translateY(-100%) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+  }
+
+  .animate-float-heart {
+    animation: float-heart linear forwards;
+  }
+
+  .animate-pulse-love {
+    animation: pulse-love 1.5s ease-in-out infinite;
+  }
+
+  .animate-shake {
+    animation: shake 0.5s ease-in-out;
+  }
+
+  .animate-crack {
+    animation: crack 0.6s ease-in-out;
+  }
+
+  .animate-confetti {
+    animation: confetti-fall 3s ease-in forwards;
+  }
+
+  .love-gradient {
+    background: linear-gradient(135deg, hsl(346, 77%, 50%), hsl(340, 80%, 70%), hsl(20, 80%, 55%));
+  }
+
+  .love-gradient-text {
+    background: linear-gradient(135deg, hsl(346, 77%, 50%), hsl(340, 80%, 70%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass-card {
+    background: hsla(340, 40%, 98%, 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsla(340, 60%, 90%, 0.5);
+  }
+}
